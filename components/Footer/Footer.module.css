@@ -1,0 +1,18 @@
+.footer {
+  padding-block: var(--mpds-space-48);
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    gap: var(--mpds-space-16);
+    align-items: flex-start;
+  }
+}
