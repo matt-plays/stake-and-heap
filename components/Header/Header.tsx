@@ -103,7 +103,7 @@ export default function Header() {
             <a href="https://mattplays.co" target="_blank" rel="noopener noreferrer" className="mono">
               mattplays.co <ArrowUpRight />
             </a>
-            <a href="https://instagram.com/mattplays" target="_blank" rel="noopener noreferrer" className="mono">
+            <a href="https://www.instagram.com/stakeandheap" target="_blank" rel="noopener noreferrer" className="mono">
               Instagram <ArrowUpRight />
             </a>
             <button
@@ -140,7 +140,7 @@ export default function Header() {
             <a href="https://mattplays.co" target="_blank" rel="noopener noreferrer" className="mono" onClick={() => setMenuOpen(false)}>
               mattplays.co <ArrowUpRight />
             </a>
-            <a href="https://instagram.com/mattplays" target="_blank" rel="noopener noreferrer" className="mono" onClick={() => setMenuOpen(false)}>
+            <a href="https://www.instagram.com/stakeandheap" target="_blank" rel="noopener noreferrer" className="mono" onClick={() => setMenuOpen(false)}>
               Instagram <ArrowUpRight />
             </a>
             <button
