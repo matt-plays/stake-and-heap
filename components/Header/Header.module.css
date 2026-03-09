@@ -1,0 +1,44 @@
+.header {
+  padding-block: var(--mpds-space-48);
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: var(--mpds-font-size-md);
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--mpds-space-48);
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mpds-space-4);
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav a svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: var(--mpds-space-24);
+  }
+}
