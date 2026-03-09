@@ -11,6 +11,8 @@
   overflow-x: hidden;
   width: 100%;
   cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
   padding-block: 160px;
   margin-block: -160px;
 }
@@ -28,6 +30,10 @@
   position: relative;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   text-decoration: none;
+}
+
+.track:active {
+  cursor: grabbing;
 }
 
 .card:hover {

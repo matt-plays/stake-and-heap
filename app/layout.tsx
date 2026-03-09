@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans } from 'next/font/google'
 import { Fragment_Mono } from 'next/font/google'
+import ThemeProvider from '@/components/ThemeProvider/ThemeProvider'
 import './globals.css'
 
 const instrumentSans = Instrument_Sans({
@@ -21,6 +22,14 @@ export const metadata: Metadata = {
   description: 'An in-progress lifestyle site for makers & doers',
 }
 
+const themeScript = `
+(function() {
+  var t = localStorage.getItem('theme');
+  if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+`
+
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +37,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${instrumentSans.variable} ${fragmentMono.variable}`}>
-      <body>{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }

@@ -20,45 +20,138 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
   return shuffled
 }
 
+const AUTO_SPEED = 0.5   // px per frame
+const FRICTION = 0.95    // velocity decay per frame
+const MIN_VELOCITY = 0.5 // threshold to stop inertia
+
 export default function ProductCarousel({ products }: ProductCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number | null>(null)
-  const scrollSpeedRef = useRef(0.5) // px per frame
+  const isDragging = useRef(false)
+  const velocity = useRef(0)
+  const lastX = useRef(0)
+  const lastTime = useRef(0)
+  const dragStartX = useRef(0)
+  const dragStartScrollLeft = useRef(0)
 
-  // Shuffle to mix categories, then duplicate for seamless loop
   const shuffled = seededShuffle(products, 42)
   const displayProducts = [...shuffled, ...shuffled]
 
-  const scroll = useCallback(() => {
-    const el = scrollRef.current
-    if (!el) {
-      animationRef.current = requestAnimationFrame(scroll)
-      return
-    }
-
-    el.scrollLeft += scrollSpeedRef.current
-
-    // Reset to beginning when we've scrolled past the first set
+  const wrapScroll = useCallback((el: HTMLDivElement) => {
     const halfWidth = el.scrollWidth / 2
     if (el.scrollLeft >= halfWidth) {
       el.scrollLeft -= halfWidth
+    } else if (el.scrollLeft < 0) {
+      el.scrollLeft += halfWidth
+    }
+  }, [])
+
+  const tick = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) {
+      animationRef.current = requestAnimationFrame(tick)
+      return
     }
 
-    animationRef.current = requestAnimationFrame(scroll)
+    if (!isDragging.current) {
+      if (Math.abs(velocity.current) > MIN_VELOCITY) {
+        // Inertia phase: apply decaying velocity
+        el.scrollLeft += velocity.current
+        velocity.current *= FRICTION
+      } else {
+        // Auto-scroll phase
+        velocity.current = 0
+        el.scrollLeft += AUTO_SPEED
+      }
+    }
+
+    wrapScroll(el)
+    animationRef.current = requestAnimationFrame(tick)
+  }, [wrapScroll])
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    const el = scrollRef.current
+    if (!el) return
+    isDragging.current = true
+    velocity.current = 0
+    lastX.current = e.clientX
+    lastTime.current = Date.now()
+    dragStartX.current = e.clientX
+    dragStartScrollLeft.current = el.scrollLeft
+    el.setPointerCapture(e.pointerId)
+  }, [])
+
+  const onPointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDragging.current || !scrollRef.current) return
+    const now = Date.now()
+    const dx = e.clientX - lastX.current
+    const dt = Math.max(now - lastTime.current, 1)
+
+    scrollRef.current.scrollLeft -= dx
+    velocity.current = (-dx / dt) * 16 // normalize to ~per-frame
+
+    lastX.current = e.clientX
+    lastTime.current = now
+  }, [])
+
+  const wasDragged = useRef(false)
+
+  const onPointerUp = useCallback((e: React.PointerEvent) => {
+    if (!isDragging.current) return
+    isDragging.current = false
+    scrollRef.current?.releasePointerCapture(e.pointerId)
+
+    const dragDist = Math.abs(e.clientX - dragStartX.current)
+    wasDragged.current = dragDist > 5
+    if (!wasDragged.current) {
+      velocity.current = 0
+    }
+  }, [])
+
+  const onClickCapture = useCallback((e: React.MouseEvent) => {
+    // Prevent link navigation if user was dragging
+    if (wasDragged.current) {
+      e.preventDefault()
+      e.stopPropagation()
+      wasDragged.current = false
+    }
   }, [])
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(scroll)
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
+    animationRef.current = requestAnimationFrame(tick)
+
+    const el = scrollRef.current
+    if (el) {
+      const onWheel = (e: WheelEvent) => {
+        // Only capture horizontal scroll — let vertical scroll pass through
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
+        if (e.deltaX === 0) return
+        e.preventDefault()
+        velocity.current = e.deltaX * 0.5
+      }
+      el.addEventListener('wheel', onWheel, { passive: false })
+      return () => {
+        el.removeEventListener('wheel', onWheel)
+        if (animationRef.current) cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [scroll])
+
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current)
+    }
+  }, [tick])
 
   return (
     <section className={styles.section}>
-      <div ref={scrollRef} className={styles.track}>
+      <div
+        ref={scrollRef}
+        className={styles.track}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onClickCapture={onClickCapture}
+      >
         {displayProducts.map((product, i) => (
           <ProductCard key={`${product.id}-${i}`} product={product} />
         ))}
