@@ -1,0 +1,85 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--mpds-space-24);
+  padding-bottom: var(--mpds-space-160);
+  overflow: hidden;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: var(--mpds-space-24);
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: var(--mpds-space-80);
+  padding: var(--mpds-space-24);
+  padding-right: var(--mpds-space-96);
+  border: 1px solid var(--color-border);
+  border-radius: var(--mpds-radius-full);
+  flex-shrink: 0;
+}
+
+.pillImage {
+  width: 322px;
+  height: 322px;
+  border-radius: var(--mpds-radius-full);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pillPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillName {
+  font-family: var(--font-display);
+  font-size: var(--mpds-font-size-12xl);
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: -4.8px;
+  white-space: nowrap;
+  color: var(--color-text);
+  font-feature-settings: 'ss01' 1, 'ss04' 1, 'ss05' 1, 'ss07' 1, 'ss08' 1, 'ss09' 1;
+}
+
+@media (max-width: 1024px) {
+  .pillImage {
+    width: 160px;
+    height: 160px;
+  }
+  .pillName {
+    font-size: var(--mpds-font-size-10xl);
+    letter-spacing: -2px;
+  }
+  .pill {
+    gap: var(--mpds-space-40);
+    padding-right: var(--mpds-space-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .pillImage {
+    width: 80px;
+    height: 80px;
+  }
+  .pillName {
+    font-size: var(--mpds-font-size-7xl);
+    letter-spacing: -1px;
+  }
+  .pill {
+    gap: var(--mpds-space-20);
+    padding: var(--mpds-space-12);
+    padding-right: var(--mpds-space-24);
+  }
+}
