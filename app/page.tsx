@@ -1,9 +1,28 @@
-export default function Home() {
+import Header from '@/components/Header/Header'
+import Hero from '@/components/Hero/Hero'
+import ProductCarousel from '@/components/ProductCarousel/ProductCarousel'
+import CategoryPills from '@/components/CategoryPills/CategoryPills'
+import Footer from '@/components/Footer/Footer'
+import { getProducts } from '@/lib/notion'
+
+export const revalidate = 60
+
+export default async function Home() {
+  let products: Awaited<ReturnType<typeof getProducts>> = []
+
+  try {
+    products = await getProducts()
+  } catch (e) {
+    console.error('Failed to fetch products from Notion:', e)
+  }
+
   return (
     <main>
-      <p className="mono" style={{ padding: 'var(--mpds-space-48)' }}>
-        Stake & Heap — coming soon
-      </p>
+      <Header />
+      <Hero />
+      {products.length > 0 && <ProductCarousel products={products} />}
+      <CategoryPills />
+      <Footer />
     </main>
   )
 }
