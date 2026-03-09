@@ -69,6 +69,35 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
     animationRef.current = requestAnimationFrame(tick)
   }, [wrapScroll])
 
+  const wasDragged = useRef(false)
+
+  const onDocPointerMove = useCallback((e: PointerEvent) => {
+    if (!isDragging.current || !scrollRef.current) return
+    const now = Date.now()
+    const dx = e.clientX - lastX.current
+    const dt = Math.max(now - lastTime.current, 1)
+
+    scrollRef.current.scrollLeft -= dx
+    velocity.current = (-dx / dt) * 16
+
+    lastX.current = e.clientX
+    lastTime.current = now
+  }, [])
+
+  const onDocPointerUp = useCallback((e: PointerEvent) => {
+    if (!isDragging.current) return
+    isDragging.current = false
+
+    const dragDist = Math.abs(e.clientX - dragStartX.current)
+    wasDragged.current = dragDist > 5
+    if (!wasDragged.current) {
+      velocity.current = 0
+    }
+
+    document.removeEventListener('pointermove', onDocPointerMove)
+    document.removeEventListener('pointerup', onDocPointerUp)
+  }, [onDocPointerMove])
+
   const onPointerDown = useCallback((e: React.PointerEvent) => {
     const el = scrollRef.current
     if (!el) return
@@ -78,35 +107,10 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
     lastTime.current = Date.now()
     dragStartX.current = e.clientX
     dragStartScrollLeft.current = el.scrollLeft
-    el.setPointerCapture(e.pointerId)
-  }, [])
 
-  const onPointerMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging.current || !scrollRef.current) return
-    const now = Date.now()
-    const dx = e.clientX - lastX.current
-    const dt = Math.max(now - lastTime.current, 1)
-
-    scrollRef.current.scrollLeft -= dx
-    velocity.current = (-dx / dt) * 16 // normalize to ~per-frame
-
-    lastX.current = e.clientX
-    lastTime.current = now
-  }, [])
-
-  const wasDragged = useRef(false)
-
-  const onPointerUp = useCallback((e: React.PointerEvent) => {
-    if (!isDragging.current) return
-    isDragging.current = false
-    scrollRef.current?.releasePointerCapture(e.pointerId)
-
-    const dragDist = Math.abs(e.clientX - dragStartX.current)
-    wasDragged.current = dragDist > 5
-    if (!wasDragged.current) {
-      velocity.current = 0
-    }
-  }, [])
+    document.addEventListener('pointermove', onDocPointerMove)
+    document.addEventListener('pointerup', onDocPointerUp)
+  }, [onDocPointerMove, onDocPointerUp])
 
   const onClickCapture = useCallback((e: React.MouseEvent) => {
     // Prevent link navigation if user was dragging
@@ -147,9 +151,6 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
         ref={scrollRef}
         className={styles.track}
         onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
         onClickCapture={onClickCapture}
       >
         {displayProducts.map((product, i) => (
