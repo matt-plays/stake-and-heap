@@ -1,0 +1,300 @@
+/* MPDS — Color Tokens */
+/* Auto-generated. Do not edit manually. */
+
+:root {
+  --mpds-color-clay-0: #FAF7F5;
+  --mpds-color-clay-25: #F2EEEA;
+  --mpds-color-clay-50: #EBE5DF;
+  --mpds-color-clay-100: #DCD3CA;
+  --mpds-color-clay-200: #BFB2A6;
+  --mpds-color-clay-300: #A19487;
+  --mpds-color-clay-350: #92867A;
+  --mpds-color-clay-400: #83786C;
+  --mpds-color-clay-500: #665C52;
+  --mpds-color-clay-600: #48413A;
+  --mpds-color-clay-700: #2A2622;
+  --mpds-color-clay-800: #0D0B0A;
+
+  --mpds-color-slate-0: #F0F3F5;
+  --mpds-color-slate-25: #E7EBEE;
+  --mpds-color-slate-50: #DEE3E6;
+  --mpds-color-slate-100: #CCD4D8;
+  --mpds-color-slate-200: #ACB6BB;
+  --mpds-color-slate-300: #8E999E;
+  --mpds-color-slate-350: #818A8F;
+  --mpds-color-slate-400: #737C81;
+  --mpds-color-slate-500: #586064;
+  --mpds-color-slate-600: #3E4447;
+  --mpds-color-slate-700: #25282A;
+  --mpds-color-slate-800: #0B0C0D;
+
+  --mpds-color-highlight: #FFDDCF;
+
+  --mpds-color-actionable: #B8D1D9;
+
+  --mpds-color-white: #FFFFFF;
+  --mpds-color-black: #000000;
+  --mpds-color-cyan: #00FFFF;
+  --mpds-color-magenta: #FF00FF;
+
+  --mpds-color-orange-s-0: #FFD2B3;
+  --mpds-color-orange-s-25: #F8B68A;
+  --mpds-color-orange-s-50: #F09B63;
+  --mpds-color-orange-s-100: #E2671C;
+  --mpds-color-orange-s-200: #C44300;
+  --mpds-color-orange-s-300: #A73400;
+  --mpds-color-orange-s-350: #982E00;
+  --mpds-color-orange-s-400: #8A2800;
+  --mpds-color-orange-s-500: #6C1D00;
+  --mpds-color-orange-s-600: #4F1500;
+  --mpds-color-orange-s-700: #320D00;
+  --mpds-color-orange-s-800: #140500;
+
+  --mpds-color-yellow-s-0: #FFE6B3;
+  --mpds-color-yellow-s-25: #F8D38A;
+  --mpds-color-yellow-s-50: #F0C163;
+  --mpds-color-yellow-s-100: #E2A01C;
+  --mpds-color-yellow-s-200: #C48300;
+  --mpds-color-yellow-s-300: #A76F00;
+  --mpds-color-yellow-s-350: #986600;
+  --mpds-color-yellow-s-400: #8A5C00;
+  --mpds-color-yellow-s-500: #6C4800;
+  --mpds-color-yellow-s-600: #4F3500;
+  --mpds-color-yellow-s-700: #322100;
+  --mpds-color-yellow-s-800: #140E00;
+
+  --mpds-color-warm-green-s-0: #E6FFB3;
+  --mpds-color-warm-green-s-25: #D3F88A;
+  --mpds-color-warm-green-s-50: #C1F063;
+  --mpds-color-warm-green-s-100: #A0E21C;
+  --mpds-color-warm-green-s-200: #83C400;
+  --mpds-color-warm-green-s-300: #6FA700;
+  --mpds-color-warm-green-s-350: #669800;
+  --mpds-color-warm-green-s-400: #5C8A00;
+  --mpds-color-warm-green-s-500: #486C00;
+  --mpds-color-warm-green-s-600: #354F00;
+  --mpds-color-warm-green-s-700: #213200;
+  --mpds-color-warm-green-s-800: #0E1400;
+
+  --mpds-color-red-s-0: #FFBFB3;
+  --mpds-color-red-s-25: #F89C8A;
+  --mpds-color-red-s-50: #F07B63;
+  --mpds-color-red-s-100: #E23D1C;
+  --mpds-color-red-s-200: #C42100;
+  --mpds-color-red-s-300: #A71C00;
+  --mpds-color-red-s-350: #981900;
+  --mpds-color-red-s-400: #8A1700;
+  --mpds-color-red-s-500: #6C1200;
+  --mpds-color-red-s-600: #4F0D00;
+  --mpds-color-red-s-700: #320800;
+  --mpds-color-red-s-800: #140300;
+
+  --mpds-color-cool-green-s-0: #B3FFCC;
+  --mpds-color-cool-green-s-25: #8AF8B0;
+  --mpds-color-cool-green-s-50: #63F098;
+  --mpds-color-cool-green-s-100: #1CE26D;
+  --mpds-color-cool-green-s-200: #00C45F;
+  --mpds-color-cool-green-s-300: #00A75B;
+  --mpds-color-cool-green-s-350: #009856;
+  --mpds-color-cool-green-s-400: #008A51;
+  --mpds-color-cool-green-s-500: #006C44;
+  --mpds-color-cool-green-s-600: #004F33;
+  --mpds-color-cool-green-s-700: #003221;
+  --mpds-color-cool-green-s-800: #00140E;
+
+  --mpds-color-teal-s-0: #B3FFFF;
+  --mpds-color-teal-s-25: #8AF7F8;
+  --mpds-color-teal-s-50: #63EEF0;
+  --mpds-color-teal-s-100: #1CDAE2;
+  --mpds-color-teal-s-200: #00B6C4;
+  --mpds-color-teal-s-300: #0095A7;
+  --mpds-color-teal-s-350: #008798;
+  --mpds-color-teal-s-400: #00788A;
+  --mpds-color-teal-s-500: #005D6C;
+  --mpds-color-teal-s-600: #00434F;
+  --mpds-color-teal-s-700: #002A32;
+  --mpds-color-teal-s-800: #001114;
+
+  --mpds-color-blue-s-0: #B3E5FF;
+  --mpds-color-blue-s-25: #8ACDF8;
+  --mpds-color-blue-s-50: #63B1F0;
+  --mpds-color-blue-s-100: #1C71E2;
+  --mpds-color-blue-s-200: #002AC4;
+  --mpds-color-blue-s-300: #0005A7;
+  --mpds-color-blue-s-350: #060098;
+  --mpds-color-blue-s-400: #0E008A;
+  --mpds-color-blue-s-500: #16006C;
+  --mpds-color-blue-s-600: #15004F;
+  --mpds-color-blue-s-700: #0F0032;
+  --mpds-color-blue-s-800: #070014;
+
+  --mpds-color-cool-purple-s-0: #D9B3FF;
+  --mpds-color-cool-purple-s-25: #C28AF8;
+  --mpds-color-cool-purple-s-50: #AC63F0;
+  --mpds-color-cool-purple-s-100: #861CE2;
+  --mpds-color-cool-purple-s-200: #7100C4;
+  --mpds-color-cool-purple-s-300: #6500A7;
+  --mpds-color-cool-purple-s-350: #5E0098;
+  --mpds-color-cool-purple-s-400: #57008A;
+  --mpds-color-cool-purple-s-500: #46006C;
+  --mpds-color-cool-purple-s-600: #34004F;
+  --mpds-color-cool-purple-s-700: #210032;
+  --mpds-color-cool-purple-s-800: #0E0014;
+
+  --mpds-color-warm-purple-s-0: #E6B3FF;
+  --mpds-color-warm-purple-s-25: #D58AF8;
+  --mpds-color-warm-purple-s-50: #C763F0;
+  --mpds-color-warm-purple-s-100: #AF1CE2;
+  --mpds-color-warm-purple-s-200: #A100C4;
+  --mpds-color-warm-purple-s-300: #9300A7;
+  --mpds-color-warm-purple-s-350: #890098;
+  --mpds-color-warm-purple-s-400: #7F008A;
+  --mpds-color-warm-purple-s-500: #68006C;
+  --mpds-color-warm-purple-s-600: #4D004F;
+  --mpds-color-warm-purple-s-700: #310032;
+  --mpds-color-warm-purple-s-800: #140014;
+
+  --mpds-color-magenta-s-0: #FFB3CC;
+  --mpds-color-magenta-s-25: #F88AAF;
+  --mpds-color-magenta-s-50: #F06395;
+  --mpds-color-magenta-s-100: #E21C66;
+  --mpds-color-magenta-s-200: #C40050;
+  --mpds-color-magenta-s-300: #A70049;
+  --mpds-color-magenta-s-350: #980045;
+  --mpds-color-magenta-s-400: #8A0040;
+  --mpds-color-magenta-s-500: #6C0034;
+  --mpds-color-magenta-s-600: #4F0027;
+  --mpds-color-magenta-s-700: #320019;
+  --mpds-color-magenta-s-800: #14000A;
+
+  --mpds-color-red-m-0: #FFE1DB;
+  --mpds-color-red-m-25: #F7CCC3;
+  --mpds-color-red-m-50: #F0B7AB;
+  --mpds-color-red-m-100: #E19080;
+  --mpds-color-red-m-200: #C25A43;
+  --mpds-color-red-m-300: #A43A20;
+  --mpds-color-red-m-350: #953017;
+  --mpds-color-red-m-400: #86270E;
+  --mpds-color-red-m-500: #681C05;
+  --mpds-color-red-m-600: #491502;
+  --mpds-color-red-m-700: #2B0D00;
+  --mpds-color-red-m-800: #0D0400;
+
+  --mpds-color-yellow-m-0: #FFF3DB;
+  --mpds-color-yellow-m-25: #F7E7C7;
+  --mpds-color-yellow-m-50: #F0DAB3;
+  --mpds-color-yellow-m-100: #E1C18F;
+  --mpds-color-yellow-m-200: #C2945A;
+  --mpds-color-yellow-m-300: #A4703A;
+  --mpds-color-yellow-m-350: #95612F;
+  --mpds-color-yellow-m-400: #865326;
+  --mpds-color-yellow-m-500: #683C19;
+  --mpds-color-yellow-m-600: #492910;
+  --mpds-color-yellow-m-700: #2B1709;
+  --mpds-color-yellow-m-800: #0D0703;
+
+  --mpds-color-warm-green-m-0: #F3FFDB;
+  --mpds-color-warm-green-m-25: #E9F7CD;
+  --mpds-color-warm-green-m-50: #E0F0C0;
+  --mpds-color-warm-green-m-100: #CDE1A6;
+  --mpds-color-warm-green-m-200: #ABC27D;
+  --mpds-color-warm-green-m-300: #8DA460;
+  --mpds-color-warm-green-m-350: #7F9554;
+  --mpds-color-warm-green-m-400: #728649;
+  --mpds-color-warm-green-m-500: #576836;
+  --mpds-color-warm-green-m-600: #3D4925;
+  --mpds-color-warm-green-m-700: #242B16;
+  --mpds-color-warm-green-m-800: #0B0D06;
+
+  --mpds-color-cool-green-m-0: #DBFFE7;
+  --mpds-color-cool-green-m-25: #CDF7DC;
+  --mpds-color-cool-green-m-50: #C0F0D2;
+  --mpds-color-cool-green-m-100: #A6E1BE;
+  --mpds-color-cool-green-m-200: #7DC29F;
+  --mpds-color-cool-green-m-300: #60A485;
+  --mpds-color-cool-green-m-350: #549579;
+  --mpds-color-cool-green-m-400: #49866D;
+  --mpds-color-cool-green-m-500: #366855;
+  --mpds-color-cool-green-m-600: #25493D;
+  --mpds-color-cool-green-m-700: #162B24;
+  --mpds-color-cool-green-m-800: #060D0B;
+
+  --mpds-color-teal-m-0: #F0FFFF;
+  --mpds-color-teal-m-25: #DFF7F7;
+  --mpds-color-teal-m-50: #D0EFF0;
+  --mpds-color-teal-m-100: #B2DFE1;
+  --mpds-color-teal-m-200: #83BEC2;
+  --mpds-color-teal-m-300: #639DA4;
+  --mpds-color-teal-m-350: #568E95;
+  --mpds-color-teal-m-400: #4A7E86;
+  --mpds-color-teal-m-500: #376068;
+  --mpds-color-teal-m-600: #254449;
+  --mpds-color-teal-m-700: #16282B;
+  --mpds-color-teal-m-800: #060C0D;
+
+  --mpds-color-blue-m-0: #F0FAFF;
+  --mpds-color-blue-m-25: #DFEFF7;
+  --mpds-color-blue-m-50: #D0E3F0;
+  --mpds-color-blue-m-100: #B2CCE1;
+  --mpds-color-blue-m-200: #839FC2;
+  --mpds-color-blue-m-300: #637AA4;
+  --mpds-color-blue-m-350: #566A95;
+  --mpds-color-blue-m-400: #4A5B86;
+  --mpds-color-blue-m-500: #374268;
+  --mpds-color-blue-m-600: #252D49;
+  --mpds-color-blue-m-700: #16192B;
+  --mpds-color-blue-m-800: #06070D;
+
+  --mpds-color-cool-purple-m-0: #F7F0FF;
+  --mpds-color-cool-purple-m-25: #EBDFF7;
+  --mpds-color-cool-purple-m-50: #E0D0F0;
+  --mpds-color-cool-purple-m-100: #C9B2E1;
+  --mpds-color-cool-purple-m-200: #A383C2;
+  --mpds-color-cool-purple-m-300: #8363A4;
+  --mpds-color-cool-purple-m-350: #765695;
+  --mpds-color-cool-purple-m-400: #684A86;
+  --mpds-color-cool-purple-m-500: #4F3768;
+  --mpds-color-cool-purple-m-600: #372549;
+  --mpds-color-cool-purple-m-700: #20162B;
+  --mpds-color-cool-purple-m-800: #0A060D;
+
+  --mpds-color-warm-purple-m-0: #FAF0FF;
+  --mpds-color-warm-purple-m-25: #F0DFF7;
+  --mpds-color-warm-purple-m-50: #E6D0F0;
+  --mpds-color-warm-purple-m-100: #D5B2E1;
+  --mpds-color-warm-purple-m-200: #B783C2;
+  --mpds-color-warm-purple-m-300: #9C63A4;
+  --mpds-color-warm-purple-m-350: #8F5695;
+  --mpds-color-warm-purple-m-400: #814A86;
+  --mpds-color-warm-purple-m-500: #653768;
+  --mpds-color-warm-purple-m-600: #492549;
+  --mpds-color-warm-purple-m-700: #2B162B;
+  --mpds-color-warm-purple-m-800: #0D060D;
+
+  --mpds-color-magenta-m-0: #FFF0F5;
+  --mpds-color-magenta-m-25: #F7DFE8;
+  --mpds-color-magenta-m-50: #F0D0DB;
+  --mpds-color-magenta-m-100: #E1B2C3;
+  --mpds-color-magenta-m-200: #C2839D;
+  --mpds-color-magenta-m-300: #A4637F;
+  --mpds-color-magenta-m-350: #955672;
+  --mpds-color-magenta-m-400: #864A66;
+  --mpds-color-magenta-m-500: #68374E;
+  --mpds-color-magenta-m-600: #492537;
+  --mpds-color-magenta-m-700: #2B1620;
+  --mpds-color-magenta-m-800: #0D060A;
+
+  --mpds-color-orange-m-0: #FFF6F0;
+  --mpds-color-orange-m-25: #F7E9DF;
+  --mpds-color-orange-m-50: #F0DCD0;
+  --mpds-color-orange-m-100: #E1C3B2;
+  --mpds-color-orange-m-200: #C29983;
+  --mpds-color-orange-m-300: #A47763;
+  --mpds-color-orange-m-350: #956956;
+  --mpds-color-orange-m-400: #865B4A;
+  --mpds-color-orange-m-500: #684437;
+  --mpds-color-orange-m-600: #492F25;
+  --mpds-color-orange-m-700: #2B1B16;
+  --mpds-color-orange-m-800: #0D0806;
+
+}

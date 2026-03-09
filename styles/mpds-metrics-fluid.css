@@ -1,0 +1,68 @@
+/* MPDS — Responsive Metrics — Fluid (clamp) */
+/* Auto-generated. Do not edit manually. */
+
+:root {
+  /* Font Size */
+  --mpds-font-size-2xs: clamp(8px, 7px + 0.2083vw, 10px);
+  --mpds-font-size-xs: clamp(10px, 9px + 0.2083vw, 12px);
+  --mpds-font-size-sm: clamp(12px, 11px + 0.2083vw, 14px);
+  --mpds-font-size-md: clamp(13px, 11.5px + 0.3125vw, 16px);
+  --mpds-font-size-lg: clamp(14px, 12px + 0.4167vw, 18px);
+  --mpds-font-size-xl: clamp(16px, 13.5px + 0.5208vw, 21px);
+  --mpds-font-size-2xl: clamp(18px, 15px + 0.625vw, 24px);
+  --mpds-font-size-3xl: clamp(20px, 16px + 0.8333vw, 28px);
+  --mpds-font-size-4xl: clamp(22px, 17px + 1.0417vw, 32px);
+  --mpds-font-size-5xl: clamp(24px, 18px + 1.25vw, 36px);
+  --mpds-font-size-6xl: clamp(28px, 21px + 1.4583vw, 42px);
+  --mpds-font-size-7xl: clamp(32px, 24px + 1.6667vw, 48px);
+  --mpds-font-size-8xl: clamp(36px, 22px + 2.9167vw, 64px);
+  --mpds-font-size-9xl: clamp(40px, 24px + 3.3333vw, 72px);
+  --mpds-font-size-10xl: clamp(44px, 18px + 5.4167vw, 96px);
+  --mpds-font-size-11xl: clamp(48px, 8px + 8.3333vw, 128px);
+  --mpds-font-size-12xl: clamp(54px, 1px + 11.0417vw, 160px);
+
+  /* Spacing */
+  --mpds-space-2xs: clamp(8px, 6px + 0.4167vw, 12px);
+  --mpds-space-xs: clamp(12px, 10px + 0.4167vw, 16px);
+  --mpds-space-sm: clamp(20px, 14px + 1.25vw, 32px);
+  --mpds-space-md: clamp(32px, 24px + 1.6667vw, 48px);
+  --mpds-space-lg: clamp(52px, 38px + 2.9167vw, 80px);
+  --mpds-space-xl: clamp(74px, 47px + 5.625vw, 128px);
+  --mpds-space-2xl: clamp(126px, 85px + 8.5417vw, 208px);
+  --mpds-space-0: 0px;
+  --mpds-space-1: 1px;
+  --mpds-space-2: clamp(1px, 0.5px + 0.1042vw, 2px);
+  --mpds-space-4: clamp(3px, 2.5px + 0.1042vw, 4px);
+  --mpds-space-6: clamp(4px, 3px + 0.2083vw, 6px);
+  --mpds-space-8: clamp(5px, 3.5px + 0.3125vw, 8px);
+  --mpds-space-10: clamp(7px, 5.5px + 0.3125vw, 10px);
+  --mpds-space-12: clamp(8px, 6px + 0.4167vw, 12px);
+  --mpds-space-14: clamp(9px, 6.5px + 0.5208vw, 14px);
+  --mpds-space-16: clamp(11px, 8.5px + 0.5208vw, 16px);
+  --mpds-space-20: clamp(13px, 9.5px + 0.7292vw, 20px);
+  --mpds-space-24: clamp(16px, 12px + 0.8333vw, 24px);
+  --mpds-space-28: clamp(19px, 14.5px + 0.9375vw, 28px);
+  --mpds-space-32: clamp(21px, 15.5px + 1.1458vw, 32px);
+  --mpds-space-36: clamp(24px, 18px + 1.25vw, 36px);
+  --mpds-space-40: clamp(27px, 20.5px + 1.3542vw, 40px);
+  --mpds-space-44: clamp(29px, 21.5px + 1.5625vw, 44px);
+  --mpds-space-48: clamp(32px, 24px + 1.6667vw, 48px);
+  --mpds-space-56: clamp(37px, 27.5px + 1.9792vw, 56px);
+  --mpds-space-64: clamp(43px, 32.5px + 2.1875vw, 64px);
+  --mpds-space-80: clamp(53px, 39.5px + 2.8125vw, 80px);
+  --mpds-space-96: clamp(64px, 48px + 3.3333vw, 96px);
+  --mpds-space-112: clamp(75px, 56.5px + 3.8542vw, 112px);
+  --mpds-space-128: clamp(85px, 63.5px + 4.4792vw, 128px);
+  --mpds-space-144: clamp(96px, 72px + 5vw, 144px);
+  --mpds-space-160: clamp(107px, 80.5px + 5.5208vw, 160px);
+  --mpds-space-176: clamp(117px, 87.5px + 6.1458vw, 176px);
+  --mpds-space-192: clamp(128px, 96px + 6.6667vw, 192px);
+  --mpds-space-208: clamp(139px, 104.5px + 7.1875vw, 208px);
+  --mpds-space-224: clamp(149px, 111.5px + 7.8125vw, 224px);
+  --mpds-space-240: clamp(160px, 120px + 8.3333vw, 240px);
+
+  /* Site Layout */
+  --mpds-site-container-width: clamp(480px, 120px + 75vw, 1200px);
+  --mpds-site-viewport-width: clamp(480px, 100vw, 1440px);
+  --mpds-site-page-padding: clamp(16px, 12px + 0.8333vw, 24px);
+}

@@ -1,0 +1,13 @@
+/* MPDS — Border Radius */
+/* Auto-generated. Do not edit manually. */
+
+:root {
+  --mpds-radius-none: 0;
+  --mpds-radius-sm: 2px;
+  --mpds-radius-md: 4px;
+  --mpds-radius-lg: 8px;
+  --mpds-radius-xl: 12px;
+  --mpds-radius-2xl: 16px;
+  --mpds-radius-3xl: 24px;
+  --mpds-radius-full: 9999px;
+}
