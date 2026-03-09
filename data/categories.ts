@@ -14,12 +14,4 @@ export const categories: Category[] = [
   { name: 'Software', slug: 'software', image: '/images/categories/software.jpg' },
   { name: 'Books', slug: 'books', image: '/images/categories/books.jpg' },
   { name: 'Art & Design', slug: 'art-design', image: '/images/categories/art-design.jpg' },
-  { name: 'Fitness', slug: 'fitness', image: '/images/categories/fitness.jpg' },
-  { name: 'Travel', slug: 'travel', image: '/images/categories/travel.jpg' },
-  { name: 'Music', slug: 'music', image: '/images/categories/music.jpg' },
-  { name: 'Audio', slug: 'audio', image: '/images/categories/audio.jpg' },
-  { name: 'Wellness', slug: 'wellness', image: '/images/categories/wellness.jpg' },
-  { name: 'EDC', slug: 'edc', image: '/images/categories/edc.jpg' },
-  { name: 'Stationery', slug: 'stationery', image: '/images/categories/stationery.jpg' },
-  { name: 'Gaming', slug: 'gaming', image: '/images/categories/gaming.jpg' },
 ]

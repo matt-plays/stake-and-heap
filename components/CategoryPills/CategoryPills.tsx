@@ -27,17 +27,15 @@ export default function CategoryPills() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Split categories into three rows
-  const third = Math.ceil(categories.length / 3)
-  const row1 = categories.slice(0, third)
-  const row2 = categories.slice(third, third * 2)
-  const row3 = categories.slice(third * 2)
+  // Split categories into two rows
+  const mid = Math.ceil(categories.length / 2)
+  const row1 = categories.slice(0, mid)
+  const row2 = categories.slice(mid)
 
-  // Parallax offset: alternating directions
-  const maxOffset = 200 // px
+  // Parallax offset: Row 1 moves left, Row 2 moves right
+  const maxOffset = 400 // px
   const row1Offset = -scrollProgress * maxOffset
   const row2Offset = scrollProgress * maxOffset
-  const row3Offset = -scrollProgress * maxOffset
 
   return (
     <section ref={sectionRef} className={styles.section}>
@@ -54,14 +52,6 @@ export default function CategoryPills() {
         style={{ transform: `translateX(${row2Offset}px)` }}
       >
         {row2.map((cat) => (
-          <CategoryPill key={cat.slug} category={cat} />
-        ))}
-      </div>
-      <div
-        className={styles.row}
-        style={{ transform: `translateX(${row3Offset}px)` }}
-      >
-        {row3.map((cat) => (
           <CategoryPill key={cat.slug} category={cat} />
         ))}
       </div>
