@@ -15,8 +15,8 @@ function slugify(name: string): string {
 }
 
 export async function getProducts(): Promise<Product[]> {
-  const response = await notion.databases.query({
-    database_id: DATABASE_ID,
+  const response = await notion.dataSources.query({
+    data_source_id: DATABASE_ID,
     filter: {
       property: 'Status',
       select: {
