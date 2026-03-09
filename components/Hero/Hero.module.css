@@ -9,14 +9,15 @@
 }
 
 .left {
-  grid-column: 3 / span 5;
+  grid-column: 3 / span 8;
   display: flex;
   align-items: flex-end;
   gap: var(--mpds-space-16);
 }
 
 .left p {
-  width: 226px;
+  flex: 1;
+  max-width: 240px;
 }
 
 .photo {

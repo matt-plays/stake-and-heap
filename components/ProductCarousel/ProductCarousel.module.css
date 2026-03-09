@@ -11,8 +11,8 @@
   overflow-x: hidden;
   width: 100%;
   cursor: grab;
-  padding-block: 84px;
-  margin-block: -84px;
+  padding-block: 160px;
+  margin-block: -160px;
 }
 
 .card {

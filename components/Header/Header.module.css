@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   gap: var(--mpds-space-12);
+  position: relative;
 }
 
 .statusDot {
@@ -31,10 +32,7 @@
 }
 
 .statusTooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   padding: var(--mpds-space-8) var(--mpds-space-12);
   background-color: var(--color-text);
   color: var(--color-bg);
@@ -43,25 +41,8 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  border-radius: var(--mpds-radius-sm);
-  opacity: 0;
+  border-radius: 4px;
   pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Nib facing south (pointing down toward the dot) */
-.statusTooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--color-text);
-}
-
-.statusDot:hover .statusTooltip {
-  opacity: 1;
 }
 
 .logo {

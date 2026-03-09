@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import styles from './Header.module.css'
 
@@ -11,13 +14,25 @@ function ArrowUpRight() {
 }
 
 export default function Header() {
+  const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    setTooltip({ x: e.clientX, y: e.clientY })
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    setTooltip(null)
+  }, [])
+
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.logoGroup}>
-          <span className={styles.statusDot}>
-            <span className={styles.statusTooltip}>MVP Mode, stay tuned</span>
-          </span>
+        <div
+          className={styles.logoGroup}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <span className={styles.statusDot} />
           <Image
             src="/images/sh-logo.svg"
             alt="Stake & Heap"
@@ -26,6 +41,14 @@ export default function Header() {
             className={styles.logo}
             priority
           />
+          {tooltip && (
+            <span
+              className={styles.statusTooltip}
+              style={{ left: tooltip.x, top: tooltip.y + 16 }}
+            >
+              MVP Mode, stay tuned
+            </span>
+          )}
         </div>
         <nav className={styles.nav}>
           <a href="https://mattplays.co" target="_blank" rel="noopener noreferrer" className="mono">
