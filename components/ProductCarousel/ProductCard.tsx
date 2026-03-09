@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import type { Product } from '@/lib/types'
 import styles from './ProductCarousel.module.css'
@@ -7,6 +10,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const [broken, setBroken] = useState(false)
   const href = product.bookshopLink || product.affiliateLink
 
   return (
@@ -14,7 +18,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       href={href || '#'}
       target="_blank"
       rel="noopener noreferrer"
-      className={styles.card}
+      className={`${styles.card} ${broken ? styles.hidden : ''}`}
     >
       <Image
         src={`/images/products/${product.imageSlug}.png`}
@@ -22,6 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         width={468}
         height={625}
         className={styles.cardImage}
+        onError={() => setBroken(true)}
       />
     </a>
   )

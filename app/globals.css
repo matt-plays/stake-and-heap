@@ -20,6 +20,12 @@
   --color-text: var(--mpds-color-slate-800);
 
   /* Elevation */
+  --shadow-xl:
+    0 8px 16px 0 rgba(19, 32, 38, 0.02),
+    0 16px 32px 0 rgba(19, 32, 38, 0.04),
+    0 24px 48px 0 rgba(19, 32, 38, 0.06),
+    0 32px 64px 0 rgba(19, 32, 38, 0.08),
+    0 40px 80px 0 rgba(19, 32, 38, 0.1);
   --shadow-xxl:
     0 8px 16px 0 rgba(19, 32, 38, 0.02),
     0 16px 32px 0 rgba(19, 32, 38, 0.04),

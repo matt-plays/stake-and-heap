@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './Header.module.css'
 
 function ArrowUpRight() {
@@ -13,7 +14,19 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <span className={styles.logo}>Stake &amp; Heap</span>
+        <div className={styles.logoGroup}>
+          <span className={styles.statusDot}>
+            <span className={styles.statusTooltip}>MVP Mode, stay tuned</span>
+          </span>
+          <Image
+            src="/images/sh-logo.svg"
+            alt="Stake & Heap"
+            width={120}
+            height={24}
+            className={styles.logo}
+            priority
+          />
+        </div>
         <nav className={styles.nav}>
           <a href="https://mattplays.co" target="_blank" rel="noopener noreferrer" className="mono">
             mattplays.co <ArrowUpRight />

@@ -13,10 +13,9 @@ export default function CategoryPill({ category }: CategoryPillProps) {
         <Image
           src={category.image}
           alt={category.name}
-          width={322}
-          height={322}
+          width={240}
+          height={240}
           className={styles.pillPhoto}
-          unoptimized
         />
       </div>
       <span className={styles.pillName}>{category.name}</span>

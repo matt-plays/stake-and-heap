@@ -9,12 +9,64 @@
   justify-content: space-between;
 }
 
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--mpds-space-12);
+}
+
+.statusDot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--mpds-radius-full);
+  flex-shrink: 0;
+  cursor: default;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { background-color: #e2b714; }
+  50% { background-color: rgba(226, 183, 20, 0.3); }
+}
+
+.statusTooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--mpds-space-8) var(--mpds-space-12);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--mpds-font-size-2xs);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: var(--mpds-radius-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Nib facing south (pointing down toward the dot) */
+.statusTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-text);
+}
+
+.statusDot:hover .statusTooltip {
+  opacity: 1;
+}
+
 .logo {
-  font-family: var(--font-display);
-  font-size: var(--mpds-font-size-md);
-  font-weight: 400;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
+  height: 24px;
+  width: auto;
 }
 
 .nav {

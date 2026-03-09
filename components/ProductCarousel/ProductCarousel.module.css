@@ -11,6 +11,8 @@
   overflow-x: hidden;
   width: 100%;
   cursor: grab;
+  padding-block: 84px;
+  margin-block: -84px;
 }
 
 .card {
@@ -29,8 +31,9 @@
 }
 
 .card:hover {
-  box-shadow: var(--shadow-xxl);
+  box-shadow: var(--shadow-xl);
   transform: translateY(-4px);
+  z-index: 1;
 }
 
 .cardImage {
@@ -39,6 +42,10 @@
   max-height: 85%;
   width: auto;
   height: auto;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 768px) {
