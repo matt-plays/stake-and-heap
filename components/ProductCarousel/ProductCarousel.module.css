@@ -1,0 +1,56 @@
+.section {
+  padding-top: var(--mpds-space-48);
+  padding-bottom: var(--mpds-space-160);
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: var(--mpds-space-16);
+  overflow-x: hidden;
+  width: 100%;
+  cursor: grab;
+}
+
+.card {
+  flex-shrink: 0;
+  width: 468px;
+  height: 625px;
+  background-color: var(--color-surface);
+  border-radius: var(--mpds-radius-2xl);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xxl);
+  transform: translateY(-4px);
+}
+
+.cardImage {
+  object-fit: contain;
+  max-width: 85%;
+  max-height: 85%;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-inline: var(--site-padding);
+  }
+  .card {
+    width: 300px;
+    height: 400px;
+    scroll-snap-align: center;
+  }
+}
