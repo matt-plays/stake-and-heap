@@ -39,6 +39,10 @@
 
 @media (max-width: 768px) {
   .nav {
-    gap: var(--mpds-space-24);
+    gap: var(--mpds-space-16);
+  }
+  .nav a {
+    font-size: var(--mpds-font-size-xs);
+    letter-spacing: 1px;
   }
 }
