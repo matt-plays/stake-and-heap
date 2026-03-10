@@ -68,6 +68,10 @@
   }
 }
 
+:global([data-theme="dark"]) .pill {
+  border-color: color-mix(in srgb, var(--color-border) 50%, transparent);
+}
+
 @media (max-width: 768px) {
   .pillImage {
     width: 80px;

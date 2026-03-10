@@ -32,6 +32,10 @@
   text-decoration: none;
 }
 
+:global([data-theme="dark"]) .card {
+  background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+}
+
 .track:active {
   cursor: grabbing;
 }

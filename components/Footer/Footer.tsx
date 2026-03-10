@@ -5,9 +5,12 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <p className="mono">
-          inspo <span className={styles.muted}>→ interviews → originals</span>
+          inspo <span className={styles.muted}>/ interviews / originals</span>
         </p>
-        <p className="mono">supported by affiliate links</p>
+        <p className="mono">made in new england</p>
+        <p className="mono">
+          <span className={styles.muted}>*</span> supported by affiliate links
+        </p>
       </div>
     </footer>
   )

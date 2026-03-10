@@ -17,6 +17,7 @@
   .inner {
     flex-direction: column;
     gap: var(--mpds-space-16);
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }
