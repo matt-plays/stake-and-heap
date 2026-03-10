@@ -58,6 +58,7 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
   const lastTime = useRef(0)
   const dragStartX = useRef(0)
   const dragStartScrollLeft = useRef(0)
+  const isMobile = useRef(false)
 
   const shuffled = separateBooks(seededShuffle(products, 42))
   const displayProducts = [...shuffled, ...shuffled]
@@ -124,6 +125,7 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
   }, [onDocPointerMove])
 
   const onPointerDown = useCallback((e: React.PointerEvent) => {
+    if (isMobile.current) return
     const el = scrollRef.current
     if (!el) return
     isDragging.current = true
@@ -147,25 +149,35 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
   }, [])
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(tick)
+    const mq = window.matchMedia('(max-width: 768px)')
+    isMobile.current = mq.matches
+    const onMqChange = (e: MediaQueryListEvent) => {
+      isMobile.current = e.matches
+    }
+    mq.addEventListener('change', onMqChange)
+
+    // Only run animation loop on desktop
+    if (!isMobile.current) {
+      animationRef.current = requestAnimationFrame(tick)
+    }
 
     const el = scrollRef.current
+    const onWheel = (e: WheelEvent) => {
+      if (isMobile.current) return
+      // Only capture horizontal scroll — let vertical scroll pass through
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
+      if (e.deltaX === 0) return
+      e.preventDefault()
+      velocity.current = e.deltaX * 0.5
+    }
+
     if (el) {
-      const onWheel = (e: WheelEvent) => {
-        // Only capture horizontal scroll — let vertical scroll pass through
-        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return
-        if (e.deltaX === 0) return
-        e.preventDefault()
-        velocity.current = e.deltaX * 0.5
-      }
       el.addEventListener('wheel', onWheel, { passive: false })
-      return () => {
-        el.removeEventListener('wheel', onWheel)
-        if (animationRef.current) cancelAnimationFrame(animationRef.current)
-      }
     }
 
     return () => {
+      mq.removeEventListener('change', onMqChange)
+      if (el) el.removeEventListener('wheel', onWheel)
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
     }
   }, [tick])

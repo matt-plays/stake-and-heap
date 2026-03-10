@@ -63,6 +63,8 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+    touch-action: auto;
+    cursor: auto;
     padding-inline: var(--site-padding);
   }
   .card {

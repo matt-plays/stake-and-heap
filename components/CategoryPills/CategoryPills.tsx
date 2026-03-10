@@ -1,30 +1,44 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { categories } from '@/data/categories'
 import CategoryPill from './CategoryPill'
 import styles from './CategoryPills.module.css'
 
+const MAX_OFFSET = 400 // px
+
 export default function CategoryPills() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const row1Ref = useRef<HTMLDivElement>(null)
+  const row2Ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current
-      if (!section) return
+    let rafId: number | null = null
 
-      const rect = section.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      // 0 when section enters bottom of viewport, 1 when it exits top
-      const progress = 1 - (rect.bottom / (viewportHeight + rect.height))
-      setScrollProgress(Math.max(0, Math.min(1, progress)))
+    const handleScroll = () => {
+      if (rafId !== null) return
+      rafId = requestAnimationFrame(() => {
+        rafId = null
+        const section = sectionRef.current
+        if (!section || !row1Ref.current || !row2Ref.current) return
+
+        const rect = section.getBoundingClientRect()
+        const viewportHeight = window.innerHeight
+        // 0 when section enters bottom of viewport, 1 when it exits top
+        const progress = Math.max(0, Math.min(1, 1 - (rect.bottom / (viewportHeight + rect.height))))
+
+        row1Ref.current.style.transform = `translateX(${-progress * MAX_OFFSET}px)`
+        row2Ref.current.style.transform = `translateX(${progress * MAX_OFFSET}px)`
+      })
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll() // Initial calculation
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId !== null) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   // Split categories into two rows
@@ -32,25 +46,14 @@ export default function CategoryPills() {
   const row1 = categories.slice(0, mid)
   const row2 = categories.slice(mid)
 
-  // Parallax offset: Row 1 moves left, Row 2 moves right
-  const maxOffset = 400 // px
-  const row1Offset = -scrollProgress * maxOffset
-  const row2Offset = scrollProgress * maxOffset
-
   return (
     <section ref={sectionRef} className={styles.section}>
-      <div
-        className={styles.row}
-        style={{ transform: `translateX(${row1Offset}px)` }}
-      >
+      <div ref={row1Ref} className={styles.row}>
         {row1.map((cat) => (
           <CategoryPill key={cat.slug} category={cat} />
         ))}
       </div>
-      <div
-        className={styles.row}
-        style={{ transform: `translateX(${row2Offset}px)` }}
-      >
+      <div ref={row2Ref} className={styles.row}>
         {row2.map((cat) => (
           <CategoryPill key={cat.slug} category={cat} />
         ))}

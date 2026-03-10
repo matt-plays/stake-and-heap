@@ -48,7 +48,7 @@
 }
 
 .logo {
-  height: 24px;
+  height: var(--mpds-font-size-2xl);
   width: auto;
 }
 
