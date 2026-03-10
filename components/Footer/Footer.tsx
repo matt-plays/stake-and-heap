@@ -4,8 +4,10 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        <p className="mono">a wip project by matt plays</p>
-        <p className="mono">made in new england</p>
+        <p className="mono">
+          inspo <span className={styles.muted}>→ interviews → originals</span>
+        </p>
+        <p className="mono">supported by affiliate links</p>
       </div>
     </footer>
   )
