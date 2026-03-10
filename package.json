@@ -11,6 +11,7 @@
   "dependencies": {
     "@mattplays/mpds": "file:../mpds",
     "@notionhq/client": "^5.11.1",
+    "@vercel/analytics": "^1.6.1",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
