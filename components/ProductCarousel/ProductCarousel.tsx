@@ -20,6 +20,31 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
   return shuffled
 }
 
+/** Ensure no two books appear back-to-back (including across the loop seam) */
+function separateBooks(arr: Product[]): Product[] {
+  const result = [...arr]
+  for (let i = 1; i < result.length; i++) {
+    if (result[i].category === 'Books' && result[i - 1].category === 'Books') {
+      for (let j = i + 1; j < result.length; j++) {
+        if (result[j].category !== 'Books') {
+          ;[result[i], result[j]] = [result[j], result[i]]
+          break
+        }
+      }
+    }
+  }
+  // Also handle the wrap seam: if last and first are both books, swap last with nearest non-book before it
+  if (result.length > 1 && result[0].category === 'Books' && result[result.length - 1].category === 'Books') {
+    for (let j = result.length - 2; j > 0; j--) {
+      if (result[j].category !== 'Books') {
+        ;[result[result.length - 1], result[j]] = [result[j], result[result.length - 1]]
+        break
+      }
+    }
+  }
+  return result
+}
+
 const AUTO_SPEED = 0.5   // px per frame
 const FRICTION = 0.95    // velocity decay per frame
 const MIN_VELOCITY = 0.5 // threshold to stop inertia
@@ -34,7 +59,7 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
   const dragStartX = useRef(0)
   const dragStartScrollLeft = useRef(0)
 
-  const shuffled = seededShuffle(products, 42)
+  const shuffled = separateBooks(seededShuffle(products, 42))
   const displayProducts = [...shuffled, ...shuffled]
 
   const wrapScroll = useCallback((el: HTMLDivElement) => {
