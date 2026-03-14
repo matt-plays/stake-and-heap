@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Instrument_Sans } from 'next/font/google'
 import { Fragment_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -21,6 +21,10 @@ const fragmentMono = Fragment_Mono({
 export const metadata: Metadata = {
   title: 'Stake & Heap',
   description: 'An in-progress lifestyle site for makers & doers',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#FFBFB3',
 }
 
 const themeScript = `
