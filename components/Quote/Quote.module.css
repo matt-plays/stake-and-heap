@@ -1,0 +1,153 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--mpds-space-240);
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* Scroll-reveal palette: words travel from --quote-dim to their revealed
+     color as the section scrolls through the viewport. */
+  --quote-dim: var(--mpds-color-slate-200);
+  --quote-fg: var(--mpds-color-slate-800);
+  --quote-accent: var(--color-accent);
+}
+
+:global([data-theme="dark"]) .section {
+  --quote-dim: var(--mpds-color-slate-600);
+  --quote-fg: var(--mpds-color-slate-25);
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Blends the top edge of the photo into the page background, which also hides
+   banding/artifacting where the image meets the section above. */
+.backgroundFade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--color-bg), transparent);
+}
+
+.backgroundDark {
+  opacity: 0;
+}
+
+:global([data-theme="dark"]) .backgroundLight {
+  opacity: 0;
+}
+
+:global([data-theme="dark"]) .backgroundDark {
+  opacity: 1;
+}
+
+/* Width, centering and side padding come from the shared .container class,
+   so column 3 here lines up with column 3 in the hero and carousel headline. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: var(--mpds-space-16);
+  /* Sits the attribution on the same baseline as the quote's final line.
+     "last" picks the quote's closing line rather than its opening one; where
+     it isn't supported this falls back to end alignment, i.e. the old
+     box-bottom behaviour. Only bites on the side-by-side layout — below
+     1024px the two land on separate rows. */
+  align-items: last baseline;
+}
+
+.quote {
+  grid-column: 3 / span 11;
+  font-family: var(--font-quote);
+  font-size: var(--mpds-font-size-9xl);
+  font-weight: 400;
+  line-height: 1;
+  /* Hangs the opening quote mark into the margin so the first glyph of the
+     text lines up with the lines below it. Matches the comp's -0.45em indent. */
+  text-indent: -0.45em;
+}
+
+/* --reveal defaults to 1 so the quote reads at full contrast before the
+   scroll handler mounts, and for anyone without JS. */
+.word,
+.highlight {
+  --reveal: 1;
+}
+
+.word {
+  color: color-mix(
+    in srgb,
+    var(--quote-fg) calc(var(--reveal) * 100%),
+    var(--quote-dim)
+  );
+}
+
+.highlight {
+  color: color-mix(
+    in srgb,
+    var(--quote-accent) calc(var(--reveal) * 100%),
+    var(--quote-dim)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .highlight {
+    --reveal: 1;
+  }
+}
+
+.attribution {
+  /* Sits two columns in from the right edge, mirroring the quote's inset. */
+  grid-column: 20 / span 3;
+  text-align: right;
+  color: var(--color-text);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .quote {
+    grid-column: 1 / span 11;
+  }
+  .attribution {
+    grid-column: 1 / span 12;
+    text-align: left;
+    margin-top: var(--mpds-space-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--mpds-space-128);
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mpds-space-48);
+  }
+  .attribution {
+    margin-top: 0;
+  }
+  /* Not enough side padding at this size for the quote mark to hang outside
+     the text block without clipping against the viewport edge. */
+  .quote {
+    text-indent: 0;
+  }
+}

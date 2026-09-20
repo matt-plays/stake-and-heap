@@ -3,10 +3,20 @@
 @import '../styles/mpds-elevation.css';
 @import '../styles/mpds-radius.css';
 
+/* Shaolin Display — self-hosted, used for block quotes */
+@font-face {
+  font-family: 'Shaolin Display';
+  src: url('/fonts/SHAOLIN-Display.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   /* Fonts — loaded via next/font in layout.tsx */
   --font-display: 'Instrument Sans', sans-serif;
   --font-mono: 'Fragment Mono', monospace;
+  --font-quote: 'Shaolin Display', var(--font-display), sans-serif;
 
   /* Site layout */
   --site-container-width: 1920px;
@@ -18,6 +28,10 @@
   --color-border: var(--mpds-color-slate-100);
   --color-muted: var(--mpds-color-slate-200);
   --color-text: var(--mpds-color-slate-800);
+  --color-selection: var(--mpds-color-slate-50);
+  /* Shared highlight — the quote's emphasised line and link hovers. */
+  --color-accent: var(--mpds-color-yellow-s-300);
+  --color-underline: var(--mpds-color-slate-50);
 
   /* Elevation */
   --shadow-xl:
@@ -41,6 +55,9 @@
   --color-border: var(--mpds-color-slate-600);
   --color-muted: var(--mpds-color-slate-400);
   --color-text: var(--mpds-color-slate-0);
+  --color-selection: var(--mpds-color-slate-500);
+  --color-accent: var(--mpds-color-yellow-s-200);
+  --color-underline: var(--mpds-color-slate-500);
 
   --shadow-xl:
     0 8px 16px 0 rgba(0, 0, 0, 0.12),
@@ -76,6 +93,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+::selection {
+  background-color: var(--color-selection);
+  color: var(--color-text);
 }
 
 body {

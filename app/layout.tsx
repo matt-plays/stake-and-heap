@@ -20,7 +20,7 @@ const fragmentMono = Fragment_Mono({
 
 export const metadata: Metadata = {
   title: 'Stake & Heap',
-  description: 'An in-progress lifestyle site for makers & doers',
+  description: 'An in-progress brand, pondering place and the idea of home',
 }
 
 export const viewport: Viewport = {
