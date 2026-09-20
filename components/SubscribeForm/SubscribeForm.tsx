@@ -51,7 +51,7 @@ export default function SubscribeForm() {
 
   return (
     <div className={styles.wrapper}>
-      <p className={`mono ${styles.label}`}>get pinged when it drops</p>
+      <p className={`mono ${styles.label}`}>stay in the loop</p>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="email"
