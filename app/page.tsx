@@ -1,5 +1,6 @@
 import Header from '@/components/Header/Header'
 import Hero from '@/components/Hero/Hero'
+import Quote from '@/components/Quote/Quote'
 import ProductCarousel from '@/components/ProductCarousel/ProductCarousel'
 import CategoryPills from '@/components/CategoryPills/CategoryPills'
 import Footer from '@/components/Footer/Footer'
@@ -20,6 +21,7 @@ export default async function Home() {
     <main>
       <Header />
       <Hero />
+      <Quote />
       {products.length > 0 && <ProductCarousel products={products} />}
       <CategoryPills />
       <Footer />

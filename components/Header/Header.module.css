@@ -64,12 +64,18 @@
 }
 
 .nav a {
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: var(--mpds-space-4);
   color: var(--color-text);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.nav a:hover,
+.overlayNav a:hover {
+  color: var(--color-accent);
 }
 
 .nav a svg {
@@ -154,6 +160,7 @@
 }
 
 .overlayNav a {
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: var(--mpds-space-4);

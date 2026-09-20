@@ -1,19 +1,114 @@
 .footer {
-  padding-block: var(--mpds-space-48);
   width: 100%;
 }
+
+/* --- Signup echo (mirrors the hero grid) --- */
+
+.signup {
+  padding-block: var(--mpds-space-240);
+  width: 100%;
+}
+
+.signupGrid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: var(--mpds-space-16);
+}
+
+.signupLeft {
+  grid-column: 3 / span 8;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--mpds-space-16);
+}
+
+/* Same measure as the hero's intro line, so the two blocks read as a pair. */
+.signupLeft p {
+  flex: 1;
+  max-width: 240px;
+  text-wrap: balance;
+}
+
+.thumb {
+  width: 145px;
+  height: 97px;
+  border-radius: var(--mpds-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.signupRight {
+  grid-column: 18 / span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 97px;
+}
+
+.link {
+  /* Not `inherit`: a transitioned `color` whose specified value is `inherit`
+     latches the old colour when the theme swaps at runtime, leaving the link
+     near-black on the dark background. A direct token reference re-resolves. */
+  color: var(--color-text);
+  text-decoration: underline;
+  /* Tonal rather than full-contrast, so the rule reads as texture in the
+     line rather than a second weight of type. */
+  text-decoration-color: var(--color-underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-accent);
+  text-decoration-color: currentColor;
+}
+
+/* --- Bottom bar --- */
 
 .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: var(--mpds-space-240);
+  padding-bottom: var(--mpds-space-48);
 }
 
 .muted {
   color: var(--color-muted);
 }
 
+@media (max-width: 1024px) {
+  .signupGrid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .signupLeft {
+    grid-column: 1 / span 5;
+  }
+  .signupRight {
+    grid-column: 7 / span 6;
+  }
+}
+
 @media (max-width: 768px) {
+  .signup {
+    padding-block: var(--mpds-space-128);
+  }
+  .signupGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mpds-space-48);
+  }
+  .signupLeft {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .signupLeft p {
+    width: 100%;
+  }
+  .signupRight {
+    height: auto;
+  }
   .inner {
     flex-direction: column;
     gap: var(--mpds-space-16);

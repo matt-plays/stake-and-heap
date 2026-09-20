@@ -1,8 +1,19 @@
 .section {
-  padding-top: var(--mpds-space-48);
-  padding-bottom: var(--mpds-space-160);
+  padding-block: var(--mpds-space-240);
   width: 100%;
   overflow: hidden;
+}
+
+.headlineGrid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: var(--mpds-space-16);
+  padding-bottom: var(--mpds-space-48);
+}
+
+.headline {
+  grid-column: 3 / span 6;
+  color: var(--color-text);
 }
 
 .track {
@@ -58,7 +69,19 @@
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .headlineGrid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .headline {
+    grid-column: 1 / span 6;
+  }
+}
+
 @media (max-width: 768px) {
+  .headlineGrid {
+    display: block;
+  }
   .track {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

@@ -15,7 +15,7 @@ export default function Hero() {
             className={styles.photo}
           />
           <p className="mono">
-            an in-progress lifestyle site for makers &amp; doers
+            an in-progress brand, pondering place and the idea of home
           </p>
         </div>
         <div className={styles.right}>

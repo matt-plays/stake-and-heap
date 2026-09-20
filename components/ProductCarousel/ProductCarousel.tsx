@@ -184,6 +184,11 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
 
   return (
     <section className={styles.section}>
+      <div className={`container ${styles.headlineGrid}`}>
+        <p className={`mono ${styles.headline}`}>
+          things that help along the way
+        </p>
+      </div>
       <div
         ref={scrollRef}
         className={styles.track}
